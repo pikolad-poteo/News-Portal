@@ -1,42 +1,55 @@
 <?php
 
-use Dom\Comment;
-
 class Controller {
 
     public static function StartSite() {
-         $arr = News::getLast10News();
-        include_once 'view/start.php';
+        $arr = News::getLast10News();
+        include 'view/start.php';
     }
 
     public static function AllCategory() {
         $arr = Category::getAllCategory();
-        include_once 'view/category.php';
+        include 'view/category.php';
     }
 
     public static function AllNews() {
         $arr = News::getAllNews();
-        include_once 'view/allnews.php';
+        include 'view/allnews.php';
     }
 
     public static function NewsByCatID($id) {
         $arr = News::getNewsByCategoryID($id);
-        include_once 'view/catnews.php';
+        include 'view/catnews.php';
     }
 
     public static function NewsByID($id) {
         $n = News::getNewsByID($id);
-        include_once 'view/readnews.php';
+        include 'view/readnews.php';
     }
-        public static function error404() {
-            include_once 'view/error404.php';
-        }
 
-        public static function InsertComment($c,$id) {
-        Comments::InsertComment($c,$id);
-        //self::NewByID($id);
-        header('Location:news?id='.$id.'#ctable');
-        }
+    public static function error404() {
+        include 'view/error404.php';
+    }
+
+    public static function InsertComment($text, $id) {
+        Comments::insertComment($text, $id);
+        header("Location: news?id=$id#ctable");
+        exit;
+    }
+
+    public static function Comments($id) {
+        $arr = Comments::getCommentsByNewsID($id);
+        ViewComments::CommentsByNews($arr);
+    }
+
+    public static function CommentsCount($id) {
+        $arr = Comments::getCommentCountByNewsID($id);
+        ViewComments::CommentsCount($arr);
+    }
+
+    public static function CommentsCountWithAncor($id) {
+        $arr = Comments::getCommentCountByNewsID($id);
+        ViewComments::CommentsCountWithAncor($arr);
+    }
 }
-
 ?>

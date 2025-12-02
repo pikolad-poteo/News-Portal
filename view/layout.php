@@ -6,8 +6,8 @@
     <link rel="stylesheet"  
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
     <meta charset="utf-8">
 </head>
 <body>
@@ -15,14 +15,11 @@
         <ul class="topmenu">
             <li><a href="#">Kategooriad<i class="fa fa-angle-down"></i></a>
                 <ul class="submenu">
-                <?php
-                    Controller::AllCategory();
-                    ?>
+                    <?php Controller::AllCategory(); ?>
                 </ul>
             </li>
             <li><a href="testError">Info</a></li>
-            <li><a href="./">Stardileht</li>
-    
+            <li><a href="./">Stardileht</a></li>
         </ul>
     </nav>
 
@@ -38,10 +35,10 @@
             ?>
         </div>
     </section>
+
     <footer>
         <hr>
-        <p slyle="display:block; text-align:center;">JPTVR18 2019 a. &copy</p>
+        <p style="display:block; text-align:center;">JPTVR18 2019 a. &copy</p>
     </footer>
 </body>
 </html>
-
